@@ -1,4 +1,4 @@
-```javascript
+javascript
 const CACHE_NAME = 'securecam-v1';
 const ASSETS = [
   './',
@@ -6,7 +6,7 @@ const ASSETS = [
   './manifest.json'
 ];
 
-// Instalación del Service Worker y cacheo de recursos base
+
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
@@ -16,7 +16,7 @@ self.addEventListener('install', event => {
   );
 });
 
-// Activación y limpieza de cachés antiguos
+
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keys => {
@@ -32,7 +32,7 @@ self.addEventListener('activate', event => {
   );
 });
 
-// Intercepción de peticiones para servir contenido offline
+
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request).then(cachedResponse => {
@@ -41,4 +41,3 @@ self.addEventListener('fetch', event => {
   );
 });
 
----
